@@ -1,4 +1,5 @@
 .app {
+  /* 그리드는 열 또는 줄로 나눈다. */
   display: grid;
   grid-template-rows: 80px auto;
 }
