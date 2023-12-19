@@ -28,9 +28,7 @@ const LoginPage = () => {
             />
             <button
               type="button"
-              onClick={() =>
-                console.log((passwordRef.current.type = "password"))
-              }
+              onClick={() => (passwordRef.current.type = "password")}
             >
               비밀번호 숨기기
             </button>
