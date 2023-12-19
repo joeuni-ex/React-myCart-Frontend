@@ -17,6 +17,7 @@ const product = {
   stock: 10,
 };
 const SingleProductPage = () => {
+  //처음 시작 이미지 번호는 0임 -> product.images[0] = image1 을 의미함
   const [selectedImage, setSelectedImage] = useState(0);
   return (
     <section className="align_center single_product">
