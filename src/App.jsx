@@ -1,4 +1,5 @@
 import "./App.css";
+import HomePage from "./components/Home/HomePage";
 import Navbar from "./components/Navbar/Navbar";
 
 function App() {
@@ -7,7 +8,9 @@ function App() {
       <nav>
         <Navbar />
       </nav>
-      <main>라우팅</main>
+      <main>
+        <HomePage />
+      </main>
     </div>
   );
 }
