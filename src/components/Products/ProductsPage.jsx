@@ -1,6 +1,6 @@
-import "./ProductPage.css";
+import "./ProductsPage.css";
 
-const ProductPage = () => {
+const ProductsPage = () => {
   return (
     <section className="products_page">
       {/* 왼쪽 카테고리 */}
@@ -9,4 +9,4 @@ const ProductPage = () => {
   );
 };
 
-export default ProductPage;
+export default ProductsPage;
