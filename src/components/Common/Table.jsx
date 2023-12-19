@@ -1,5 +1,6 @@
 import "./Table.css";
 
+//Table 컴포넌트는 열의 제목들이 배열로 입력되면 제목들을 th태그로 만듬
 const Table = ({ headings, children }) => {
   return (
     <table className="common_table">
