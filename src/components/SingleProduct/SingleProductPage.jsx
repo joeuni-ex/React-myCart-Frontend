@@ -48,7 +48,8 @@ const SingleProductPage = () => {
         <h1 className="single_product_title">{product.title}</h1>
         <p className="single_product_description">{product.description}</p>
         <p className="single_product_price">
-          ￦ {product.price.toLocaleString("ko-KR")} 원
+          {/* 우리나라 원화와 맞게 toLocaleString으로 변환 */}￦{" "}
+          {product.price.toLocaleString("ko-KR")} 원
         </p>
 
         <h2 className="quantity_title">구매개수:</h2>
