@@ -1,3 +1,4 @@
+/* gird 1대 1비율 */
 .hero_section {
   display: grid;
   grid-template-columns: 1fr 1fr;
