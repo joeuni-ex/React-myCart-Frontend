@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import "./SignupPage.css";
 import user from "../../assets/user.webp";
+import { useState } from "react";
 const SignupPage = () => {
   // const [profilePic, setProfilePic] = useState(null);
   const {
@@ -9,6 +10,10 @@ const SignupPage = () => {
     formState: { errors },
     watch,
   } = useForm();
+
+  const [profilePic, setProfilePic] = useState(null); //프로파일 이미지
+
+  console.log(profilePic);
 
   const submitData = (formData) => console.log(formData);
 
@@ -24,12 +29,21 @@ const SignupPage = () => {
 
         <div className="image_input_section">
           <div className="image_preview">
-            <img src={user} id="file-ip-1-preview" />
+            {/* 프로필 사진 설정 시 이미지 출력*/}
+            <img
+              src={profilePic ? URL.createObjectURL(profilePic) : user}
+              id="file-ip-1-preview"
+            />
           </div>
           <label htmlFor="file-ip-1" className="image_label">
             이미지 업로드
           </label>
-          <input type="file" id="file-ip-1" className="image_input" />
+          <input
+            onChange={(e) => setProfilePic(e.target.files[0])}
+            type="file"
+            id="file-ip-1"
+            className="image_input"
+          />
         </div>
 
         {/* Form Inputs */}
@@ -96,6 +110,7 @@ const SignupPage = () => {
               className="form_text_input"
               type="password"
               placeholder="패스워드 확인 입력..."
+              // confirmPasswor와 다르면 패스워드가 맞지 않습니다. 출력
               {...register("confirmPassword", {
                 required: true,
                 validate: (value) => {
