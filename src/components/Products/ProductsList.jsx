@@ -3,7 +3,7 @@ import useData from "../../Hook/useData";
 import ProductCard from "./ProductCard";
 import ProductCardSkeleton from "./ProductCardSkeleton";
 import "./ProductsList.css";
-import Pagination from "../Common/Pagenation";
+import Pagination from "../Common/Pagination";
 
 const ProductsList = () => {
   //sidebar에서 카테고리 쿼리스트링을 받아온다.
