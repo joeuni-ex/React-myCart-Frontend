@@ -61,15 +61,15 @@ const ProductsList = () => {
               stock={product.stock}
             />
           ))}
-        {data && (
-          <Pagination
-            total={data.totalProducts}
-            perPage={8}
-            onClick={handlePageChange}
-            currentPage={page}
-          />
-        )}
       </div>
+      {data && (
+        <Pagination
+          total={data.totalProducts}
+          perPage={8}
+          onClick={handlePageChange}
+          currentPage={page}
+        />
+      )}
     </section>
   );
 };
