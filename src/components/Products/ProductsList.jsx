@@ -32,7 +32,16 @@ const ProductsList = () => {
         {error && <em className="form_error">{error}</em>}
         {/* products가 있을 경우 반복문으로 출력 */}
         {products.map((product) => (
-          <ProductCard key={product._id} />
+          <ProductCard
+            key={product._id}
+            id={product._id}
+            title={product.title}
+            image={product.images[0]}
+            price={product.price}
+            rating={product.rating}
+            ratingCounts={product.reviews.counts}
+            stock={product.stock}
+          />
         ))}
       </div>
     </section>
