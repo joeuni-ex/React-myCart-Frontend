@@ -1,11 +1,13 @@
 import useData from "../../Hook/useData";
 import ProductCard from "./ProductCard";
+import ProductCardSkeleton from "./ProductCardSkeleton";
 import "./ProductsList.css";
 
 const ProductsList = () => {
   //useDate(url)이 들어가야함
   //결과(res)는 categories와, error에 담는다.
-  const { data, error } = useData("/products");
+  const { data, error, isLoading } = useData("/products");
+  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
   return (
     <section className="products_list_section">
       <header className="align_center products_list_header">
@@ -22,6 +24,7 @@ const ProductsList = () => {
       <div className="products_list">
         {/* 에러가 있을 경우 에러 표시 */}
         {error && <em className="form_error">{error}</em>}
+        {isLoading && skeletons.map((n) => <ProductCardSkeleton key={n} />)}
         {/* products가 있을 경우 반복문으로 출력 */}
         {data.products &&
           data.products.map((product) => (
