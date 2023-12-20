@@ -3,6 +3,7 @@ import useData from "../../Hook/useData";
 import ProductCard from "./ProductCard";
 import ProductCardSkeleton from "./ProductCardSkeleton";
 import "./ProductsList.css";
+import Pagination from "../Common/Pagenation";
 
 const ProductsList = () => {
   //sidebar에서 카테고리 쿼리스트링을 받아온다.
@@ -60,7 +61,14 @@ const ProductsList = () => {
               stock={product.stock}
             />
           ))}
-        <button onClick={() => handlePageChange(2)}>페이지 2</button>
+        {data && (
+          <Pagination
+            total={data.totalProducts}
+            perPage={8}
+            onClick={handlePageChange}
+            currentPage={page}
+          />
+        )}
       </div>
     </section>
   );
