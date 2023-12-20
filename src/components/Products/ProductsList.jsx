@@ -8,6 +8,7 @@ const ProductsList = () => {
   //sidebar에서 카테고리 쿼리스트링을 받아온다.
   const [search, setSearch] = useSearchParams();
   const category = search.get("category"); //모든 쿼리스트링 중 카테고리
+  const page = search.get("page");
   //useDate(url)이 들어가야함
   //결과(res)는 categories와, error에 담는다.
   const { data, error, isLoading } = useData(
@@ -15,12 +16,19 @@ const ProductsList = () => {
     {
       params: {
         category, //카테고리 파라미터 전달
+        page, //페이지 추가(페이지네이션 사용)
       },
     },
-    [category]
+    [category, page]
   );
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
 
+  //search파라미터에서 page값만 업데이트한다.
+  const handlePageChange = (page) => {
+    const currentParams = Object.fromEntries([...search]);
+    //원래 값에 페이지만 업데이트한다.
+    setSearch({ ...currentParams, page: page });
+  };
   return (
     <section className="products_list_section">
       <header className="align_center products_list_header">
@@ -52,6 +60,7 @@ const ProductsList = () => {
               stock={product.stock}
             />
           ))}
+        <button onClick={() => handlePageChange(2)}>페이지 2</button>
       </div>
     </section>
   );
