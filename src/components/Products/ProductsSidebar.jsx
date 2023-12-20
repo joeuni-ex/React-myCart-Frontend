@@ -1,34 +1,27 @@
 import "./ProductsSidebar.css";
 import LinkWithIcon from "../Navbar/LinkWithIcon";
-import apiClient from "../../utils/api-client";
-import { useEffect, useState } from "react";
+import useData from "../../Hook/useData";
 
 const ProductsSidebar = () => {
-  const [categories, setCategories] = useState([]);
-  const [error, setError] = useState("");
-
-  // 처음 실행 시 백엔드에서 데이터 가져오기
-  useEffect(() => {
-    apiClient
-      .get("/category") //category 에서
-      .then((res) => setCategories(res.data)) // 데이터가 있으면 저장
-      .catch((err) => setError(err.message)); // 에러가 있으면 저장
-  }, []);
+  //useDate(url)이 들어가야함
+  //결과(res)는 categories와, error에 담는다.
+  const { data: categories, error } = useData("/category");
 
   return (
     <aside className="products_sidebar">
       <h2>카테고리</h2>
       <div className="category_links">
         {error && <em className="form_error">{error}</em>}
-        {categories.map((category) => (
-          <LinkWithIcon
-            key={category._id}
-            title={category.name}
-            link={`products?category=${category.name}`}
-            emoji={`http://localhost:5000/category/${category.image}`}
-            sidebar={true}
-          />
-        ))}
+        {categories &&
+          categories.map((category) => (
+            <LinkWithIcon
+              key={category._id}
+              title={category.name}
+              link={`products?category=${category.name}`}
+              emoji={`http://localhost:5000/category/${category.image}`}
+              sidebar={true}
+            />
+          ))}
       </div>
     </aside>
   );
