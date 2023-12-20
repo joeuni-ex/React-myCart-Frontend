@@ -3,6 +3,7 @@ import "./SingleProductPage.css";
 import QuantityInput from "./QuantityInput";
 import { useParams } from "react-router-dom";
 import useData from "../../Hook/useData";
+import Loader from "../Common/Loader";
 
 const SingleProductPage = () => {
   //처음 시작 이미지 번호는 0임 -> product.images[0] = image1 을 의미함
@@ -12,6 +13,7 @@ const SingleProductPage = () => {
   return (
     <section className="align_center single_product">
       {error && <em className="form_error">{error}</em>}
+      {isLoading && <Loader />}
       {product._id && (
         <>
           <div className="align_center">
@@ -19,6 +21,7 @@ const SingleProductPage = () => {
               {/* product 안의 images를 map 반복한다. */}
               {product.images.map((image, index) => (
                 <img
+                  key={index}
                   src={`http://localhost:5000/products/${image}`}
                   alt={product.title}
                   // css 는 selectedImage state가 index일 경우 selected_image 적용한다.
