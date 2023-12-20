@@ -57,3 +57,8 @@
   font-size: 15px;
   margin-left: 5px;
 }
+
+/* 네브 링크로 클릭 시 active 들어감 */
+.navbar_links > a.active {
+  font-weight: 600;
+}
