@@ -1,13 +1,26 @@
+import { useSearchParams } from "react-router-dom";
 import useData from "../../Hook/useData";
 import ProductCard from "./ProductCard";
 import ProductCardSkeleton from "./ProductCardSkeleton";
 import "./ProductsList.css";
 
 const ProductsList = () => {
+  //sidebar에서 카테고리 쿼리스트링을 받아온다.
+  const [search, setSearch] = useSearchParams();
+  const category = search.get("category"); //모든 쿼리스트링 중 카테고리
   //useDate(url)이 들어가야함
   //결과(res)는 categories와, error에 담는다.
-  const { data, error, isLoading } = useData("/products");
+  const { data, error, isLoading } = useData(
+    "/products",
+    {
+      params: {
+        category, //카테고리 파라미터 전달
+      },
+    },
+    [category]
+  );
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
+
   return (
     <section className="products_list_section">
       <header className="align_center products_list_header">
