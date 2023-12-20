@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import "./SignupPage.css";
 import user from "../../assets/user.webp";
 import { useState } from "react";
+import { signup } from "../../services/userServices";
 const SignupPage = () => {
   // const [profilePic, setProfilePic] = useState(null);
   const {
@@ -15,7 +16,11 @@ const SignupPage = () => {
 
   console.log(profilePic);
 
-  const submitData = (formData) => console.log(formData);
+  //가입하기
+  //폼 입력창에 작성한 데이터 객체 formData와 이미지파일을 signup 함수에 전달한다.
+  const submitData = async (formData) => {
+    await signup(formData, profilePic);
+  };
 
   //console.log(profilePic);
 
@@ -95,7 +100,7 @@ const SignupPage = () => {
               placeholder="패스워드 입력..."
               {...register("password", {
                 required: "패스워드를 입력해주세요.",
-                minLength: { value: 4, message: "패스워드는 최소 4자 이상." },
+                minLength: { value: 8, message: "패스워드는 최소 8자 이상." },
               })}
             />
             {errors.password && (
