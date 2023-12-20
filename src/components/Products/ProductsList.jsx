@@ -38,7 +38,7 @@ const ProductsList = () => {
             title={product.title}
             image={product.images[0]}
             price={product.price}
-            rating={product.rating}
+            rating={product.reviews.rate}
             ratingCounts={product.reviews.counts}
             stock={product.stock}
           />
