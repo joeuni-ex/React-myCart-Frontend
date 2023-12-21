@@ -28,10 +28,11 @@ function App() {
 
   //장바구니에 상품 추가
   const addToCart = (product, quantity) => {
+    //기존의 카트 데이터 뒤에 새로운 데이터 추가
     setCart([...cart, { product, quantity }]);
   };
 
-  console.log(user);
+  //console.log(user);
   return (
     <div className="app">
       <Navbar user={user} cartCount={cart.length} />

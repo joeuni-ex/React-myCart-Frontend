@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import useData from "../../Hook/useData";
 import Loader from "../Common/Loader";
 
-const SingleProductPage = () => {
+const SingleProductPage = ({ addToCart }) => {
   //처음 시작 이미지 번호는 0임 -> product.images[0] = image1 을 의미함
   const [selectedImage, setSelectedImage] = useState(0);
   const { id } = useParams(); //주소 변수 path variable받기
@@ -59,7 +59,12 @@ const SingleProductPage = () => {
               />
             </div>
 
-            <button className="search_button add_cart">장바구니 추가</button>
+            <button
+              onClick={() => addToCart(product, quantity)}
+              className="search_button add_cart"
+            >
+              장바구니 추가
+            </button>
           </div>
         </>
       )}
