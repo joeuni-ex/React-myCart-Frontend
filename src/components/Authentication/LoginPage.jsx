@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import "./LoginPage.css";
 import { useForm } from "react-hook-form";
+import { login } from "../../services/userServices";
 
 const LoginPage = () => {
   //react-hook-form 사용
@@ -9,21 +10,17 @@ const LoginPage = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  // const [user, setUser] = useState({
-  //   email: "",
-  //   password: "",
-  // });
-  //리액트에서 특정 태그를 선택하는 방법
-  //const passwordRef = useRef(null);
+  const [formError, setFormError] = useState("");
 
-  //로그인 클릭 시 실행
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log(user);
-  //   setUser({ email: "", password: "" });
-  // };
-
-  const submitData = (formData) => console.log(formData);
+  //로그인 실행
+  const submitData = async (formData) => {
+    try {
+      await login(formData);
+      window.location = "/"; //로그인 후 기본 페이지로
+    } catch (err) {
+      setFormError(err.response.data.message);
+    }
+  };
   return (
     <section className="align_center form_page">
       <form onSubmit={handleSubmit(submitData)} className="authentication_form">
@@ -75,7 +72,7 @@ const LoginPage = () => {
               비밀번호 보이게
             </button> */}
           </div>
-
+          {formError && <em className="form_error">{formError}</em>}
           <button type="submit" className="search_button form_submit">
             Submit
           </button>

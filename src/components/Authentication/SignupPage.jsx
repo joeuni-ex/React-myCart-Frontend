@@ -19,6 +19,7 @@ const SignupPage = () => {
   const submitData = async (formData) => {
     try {
       await signup(formData, profilePic);
+      window.location = "/"; //회원가입 성공 후 기본페이지로 이동
     } catch (err) {
       setFormError(err.response.data.message);
     }
