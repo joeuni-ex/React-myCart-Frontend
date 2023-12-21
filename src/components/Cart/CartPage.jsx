@@ -12,7 +12,7 @@ const CartPage = () => {
   const [subTotal, setSubTotal] = useState(0); //배송비 제외 합계
   const user = useContext(UserContext);
   const { cart, removeFromCart } = useContext(CartContext);
-
+  //console.log(user.profilePic);
   //카트 수정될 때마다 합계 계산하기
   useEffect(() => {
     let total = 0;
