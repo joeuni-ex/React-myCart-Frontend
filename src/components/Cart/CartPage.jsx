@@ -11,7 +11,7 @@ import CartContext from "../../contexts/CartContext";
 const CartPage = () => {
   const [subTotal, setSubTotal] = useState(0); //배송비 제외 합계
   const user = useContext(UserContext);
-  const { cart } = useContext(CartContext);
+  const { cart, removeFromCart } = useContext(CartContext);
 
   //카트 수정될 때마다 합계 계산하기
   useEffect(() => {
@@ -46,6 +46,7 @@ const CartPage = () => {
               <td>{(quantity * product.price).toLocaleString("ko-KR")} 원</td>
               <td>
                 <img
+                  onClick={() => removeFromCart(product._id)}
                   src={remove}
                   alt="remove icon"
                   className="cart_remove_icon"

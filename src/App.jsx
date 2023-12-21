@@ -53,6 +53,14 @@ function App() {
       });
   };
 
+  //장바구니 상품 삭제
+  const removeFromCart = (id) => {
+    const oldCart = [...cart]; //기존의 장바구니
+    const newCart = oldCart.filter((item) => item.product._id !== id);
+    //매개변수로 받아오는 id와 같지 않은 것만 newCart에 담는다
+    setCart(newCart); //장바구니에 저장한다.
+  };
+
   useEffect(() => {
     getCart();
   }, [user]);
@@ -78,7 +86,7 @@ function App() {
   //console.log(user);
   return (
     <UserContext.Provider value={user}>
-      <CartContext.Provider value={{ cart, addToCart }}>
+      <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
         <div className="app">
           <Navbar user={user} cartCount={cart.length} />
           <main>
