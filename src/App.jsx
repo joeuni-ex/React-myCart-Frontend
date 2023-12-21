@@ -6,7 +6,9 @@ import { jwtDecode } from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import {
   addToCartAPI,
+  decreaseProductAPI,
   getCartAPI,
+  increaseProductAPI,
   removeFromCartAPI,
 } from "./services/cartServices";
 // toastify
@@ -68,6 +70,30 @@ function App() {
     });
   };
 
+  // 장바구니 상품 개수 증감( type : 감소,증가 )
+  const updateCart = (type, id) => {
+    const updatedCart = [...cart];
+    const productIndex = updatedCart.findIndex(
+      (item) => item.product._id === id
+    );
+    //만약 타입이 increase 이면 기존의 수량에서 증가한다.
+    if (type === "increase") {
+      updatedCart[productIndex].quantity += 1;
+      setCart(updatedCart);
+      increaseProductAPI(id).catch((err) => {
+        toast.error("상품 증가 에러");
+      });
+    }
+    //만약 타입이 decrease 이면 기존의 수량에서 감소한다.
+    if (type === "decrease") {
+      updatedCart[productIndex].quantity -= 1;
+      setCart(updatedCart);
+      decreaseProductAPI(id).catch((err) => {
+        toast.error("상품 감소 에러");
+      });
+    }
+  };
+
   useEffect(() => {
     getCart();
   }, [user]);
@@ -93,7 +119,9 @@ function App() {
   //console.log(user);
   return (
     <UserContext.Provider value={user}>
-      <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+      <CartContext.Provider
+        value={{ cart, addToCart, removeFromCart, updateCart }}
+      >
         <div className="app">
           <Navbar user={user} cartCount={cart.length} />
           <main>
