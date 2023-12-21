@@ -26,12 +26,17 @@ function App() {
     } catch (error) {}
   }, []);
 
+  //장바구니에 상품 추가
+  const addToCart = (product, quantity) => {
+    setCart([...cart, { product, quantity }]);
+  };
+
   console.log(user);
   return (
     <div className="app">
       <Navbar user={user} cartCount={cart.length} />
       <main>
-        <Routing />
+        <Routing addToCart={addToCart} />
       </main>
     </div>
   );
