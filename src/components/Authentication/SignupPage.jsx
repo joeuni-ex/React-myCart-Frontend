@@ -11,17 +11,18 @@ const SignupPage = () => {
     formState: { errors },
     watch,
   } = useForm();
-
   const [profilePic, setProfilePic] = useState(null); //프로파일 이미지
-
-  console.log(profilePic);
+  const [formError, setFormError] = useState("");
 
   //가입하기
   //폼 입력창에 작성한 데이터 객체 formData와 이미지파일을 signup 함수에 전달한다.
   const submitData = async (formData) => {
-    await signup(formData, profilePic);
+    try {
+      await signup(formData, profilePic);
+    } catch (err) {
+      setFormError(err.response.data.message);
+    }
   };
-
   //console.log(profilePic);
 
   return (
@@ -146,7 +147,7 @@ const SignupPage = () => {
             )}
           </div>
         </div>
-
+        {formError && <em className="form_error">{formError}</em>}
         <button className="search_button form_submit" type="submit">
           Submit
         </button>
