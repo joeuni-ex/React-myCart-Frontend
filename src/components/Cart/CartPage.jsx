@@ -1,6 +1,5 @@
 import "./CartPage.css";
 import remove from "../../assets/remove.png";
-import user from "../../assets/user.webp";
 import Table from "../Common/Table";
 import QuantityInput from "../SingleProduct/QuantityInput";
 import { useEffect, useState, useContext } from "react";
