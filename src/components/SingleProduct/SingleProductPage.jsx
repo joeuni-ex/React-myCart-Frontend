@@ -1,17 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./SingleProductPage.css";
 import QuantityInput from "./QuantityInput";
 import { useParams } from "react-router-dom";
 import useData from "../../Hook/useData";
 import Loader from "../Common/Loader";
+import CartContext from "../../contexts/CartContext";
 
-const SingleProductPage = ({ addToCart }) => {
+const SingleProductPage = () => {
   //처음 시작 이미지 번호는 0임 -> product.images[0] = image1 을 의미함
   const [selectedImage, setSelectedImage] = useState(0);
   const { id } = useParams(); //주소 변수 path variable받기
   const { data: product, error, isLoading } = useData(`/products/${id}`); //특정 아이디 제품만 가져오게함
 
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(1); //수량
+  const { addToCart } = useContext(CartContext);
   return (
     <section className="align_center single_product">
       {error && <em className="form_error">{error}</em>}

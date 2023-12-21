@@ -8,6 +8,9 @@ import { addToCartAPI, getCartAPI } from "./services/cartServices";
 // toastify
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+// user context
+import UserContext from "./contexts/UserContext";
+import CartContext from "./contexts/CartContext";
 
 // 토큰이 있을 경우 가져온다.
 setAuthToken(localStorage.getItem("token"));
@@ -74,13 +77,17 @@ function App() {
 
   //console.log(user);
   return (
-    <div className="app">
-      <Navbar user={user} cartCount={cart.length} />
-      <main>
-        <ToastContainer position="bottom-right" />
-        <Routing addToCart={addToCart} cart={cart} />
-      </main>
-    </div>
+    <UserContext.Provider value={user}>
+      <CartContext.Provider value={{ cart, addToCart }}>
+        <div className="app">
+          <Navbar user={user} cartCount={cart.length} />
+          <main>
+            <ToastContainer position="bottom-right" />
+            <Routing />
+          </main>
+        </div>
+      </CartContext.Provider>
+    </UserContext.Provider>
   );
 }
 
