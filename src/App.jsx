@@ -9,6 +9,7 @@ import { addToCartAPI } from "./services/cartServices";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+// 토큰이 있을 경우 가져온다.
 setAuthToken(localStorage.getItem("token"));
 
 function App() {
