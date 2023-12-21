@@ -50,16 +50,7 @@ const ProductsList = () => {
         {/* products가 있을 경우 반복문으로 출력 */}
         {data.products &&
           data.products.map((product) => (
-            <ProductCard
-              key={product._id}
-              id={product._id}
-              title={product.title}
-              image={product.images[0]}
-              price={product.price}
-              rating={product.reviews.rate}
-              ratingCounts={product.reviews.counts}
-              stock={product.stock}
-            />
+            <ProductCard key={product._id} product={product} />
           ))}
       </div>
       {data && (

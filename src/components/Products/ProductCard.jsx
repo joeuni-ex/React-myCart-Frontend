@@ -1,23 +1,18 @@
 import "./ProductCard.css";
 import star from "../../assets/white-star.png";
 import basket from "../../assets/basket.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import CartContext from "../../contexts/CartContext";
+import { useContext } from "react";
 
-const ProductCard = ({
-  id,
-  image,
-  price,
-  title,
-  rating,
-  ratingCounts,
-  stock,
-}) => {
+const ProductCard = ({ product }) => {
+  const { addToCart } = useContext(CartContext);
   return (
     <article className="product_card">
       <div className="product_image">
-        <Link to={`/product/${id}`}>
+        <Link to={`/product/${product?.id}`}>
           <img
-            src={`http://localhost:5000/products/${image}`}
+            src={`http://localhost:5000/products/${product?.images[0]}`}
             // {image}만 넣으면 제대로 불러오지 못함
             // 백엔드 서버 주소로 요청하면 됨
             alt="product image"
@@ -26,20 +21,25 @@ const ProductCard = ({
       </div>
 
       <div className="product_details">
-        <h3 className="product_price">{price?.toLocaleString("ko-KR")} 원</h3>
+        <h3 className="product_price">
+          {product?.price?.toLocaleString("ko-KR")} 원
+        </h3>
         {/* ?를 넣으면 데이터가 없더라도 에러가 나지않음  */}
-        <p className="product_title">{title}</p>
+        <p className="product_title">{product?.title}</p>
 
         <footer className="align_center product_info_footer">
           <div className="align_center">
             <p className="align_center product_rating">
-              <img src={star} alt="star" /> {rating}
+              <img src={star} alt="star" /> {product?.reviews.rate}
             </p>
-            <p className="product_review_count">{ratingCounts}</p>
+            <p className="product_review_count">{product?.reviews.counts}</p>
           </div>
           {/* 재고가 있을 경우에만 장바구니 담기 표시 */}
-          {stock > 0 && (
-            <button className="add_to_cart">
+          {product?.stock > 0 && (
+            <button
+              className="add_to_cart"
+              onClick={() => addToCart(product, 1)}
+            >
               <img src={basket} alt="basket button" />
             </button>
           )}
