@@ -1,6 +1,6 @@
 import apiClient from "./api-client";
 
-//axios의 헤더에 토큰을 추가한다.
+//axios의 헤더에 토큰을 추가한다. 모든 요청 시 적용됨
 const setAuthToken = (token) => {
   if (token) {
     apiClient.defaults.headers.common["x-auth-token"] = token;
