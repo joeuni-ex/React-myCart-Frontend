@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
   return (
     <article className="product_card">
       <div className="product_image">
-        <Link to={`/product/${product?.id}`}>
+        <Link to={`/product/${product?._id}`}>
           <img
             src={`http://localhost:5000/products/${product?.images[0]}`}
             // {image}만 넣으면 제대로 불러오지 못함
