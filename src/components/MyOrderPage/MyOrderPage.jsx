@@ -10,6 +10,7 @@ const MyOrderPage = () => {
     const productStringArr = order.products.map(
       (p) => `${p.product.title}(${p.quantity})`
     );
+    //,로 합친다.
     return productStringArr.join(", ");
   };
   return (
