@@ -36,7 +36,7 @@ const ProductCard = ({ product }) => {
             </p>
             <p className="product_review_count">{product?.reviews.counts}</p>
           </div>
-          {/* 재고가 있을 경우에만 장바구니 담기 표시 */}
+          {/* 재고가 있을 경우 및 유저가 있을 경우에만  장바구니 담기 표시 */}
           {product?.stock > 0 && user && (
             <button
               className="add_to_cart"
