@@ -96,7 +96,7 @@ function App() {
   };
 
   useEffect(() => {
-    getCart();
+    if (user) getCart(); // 유저가 바뀌거나 시작 시 카트 정보 가져온다.
   }, [user]);
 
   //실행 시 로컬 스토리지에서 토큰 가져온다
