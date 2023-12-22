@@ -4,9 +4,11 @@ import basket from "../../assets/basket.png";
 import { Link } from "react-router-dom";
 import CartContext from "../../contexts/CartContext";
 import { useContext } from "react";
+import UserContext from "../../contexts/UserContext";
 
 const ProductCard = ({ product }) => {
   const { addToCart } = useContext(CartContext);
+  const user = useContext(UserContext);
   return (
     <article className="product_card">
       <div className="product_image">
@@ -35,7 +37,7 @@ const ProductCard = ({ product }) => {
             <p className="product_review_count">{product?.reviews.counts}</p>
           </div>
           {/* 재고가 있을 경우에만 장바구니 담기 표시 */}
-          {product?.stock > 0 && (
+          {product?.stock > 0 && user && (
             <button
               className="add_to_cart"
               onClick={() => addToCart(product, 1)}
