@@ -17,7 +17,7 @@ const HomePage = () => {
       <HeroSection
         title="궁극의 장비를 세팅하세요"
         subtitle="You can add Studio Display and colour-matched Magic accessories to your bag after configure your Mac mini."
-        link="/product/658234e22518230f6cfd4211"
+        link="/product/658502a61a5d0e370ff1167f"
         image={mac}
       />
     </div>
