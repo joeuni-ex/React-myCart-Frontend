@@ -9,6 +9,7 @@ const ProductsList = () => {
   //sidebar에서 카테고리 쿼리스트링을 받아온다.
   const [search, setSearch] = useSearchParams();
   const category = search.get("category"); //모든 쿼리스트링 중 카테고리
+  const searchQuery = search.get("search"); //검색창에서 검색어 가져오기
   const page = search.get("page");
   //useDate(url)이 들어가야함
   //결과(res)는 categories와, error에 담는다.
@@ -16,11 +17,12 @@ const ProductsList = () => {
     "/products",
     {
       params: {
+        search: searchQuery, //검색어 추가
         category, //카테고리 파라미터 전달
         page, //페이지 추가(페이지네이션 사용)
       },
     },
-    [category, page]
+    [searchQuery, category, page]
   );
   const skeletons = [1, 2, 3, 4, 5, 6, 7, 8];
 
