@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import CartContext from "../../contexts/CartContext";
 import { useContext } from "react";
 import UserContext from "../../contexts/UserContext";
+import config from "../../config.json";
 
 const ProductCard = ({ product }) => {
   const { addToCart } = useContext(CartContext);
@@ -14,7 +15,7 @@ const ProductCard = ({ product }) => {
       <div className="product_image">
         <Link to={`/product/${product?._id}`}>
           <img
-            src={`http://localhost:5000/products/${product?.images[0]}`}
+            src={`${config.backendURL}/products/${product?.images[0]}`}
             // {image}만 넣으면 제대로 불러오지 못함
             // 백엔드 서버 주소로 요청하면 됨
             alt="product image"

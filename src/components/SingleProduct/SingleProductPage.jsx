@@ -6,6 +6,7 @@ import useData from "../../Hook/useData";
 import Loader from "../Common/Loader";
 import CartContext from "../../contexts/CartContext";
 import UserContext from "../../contexts/UserContext";
+import config from "../../config.json";
 
 const SingleProductPage = () => {
   //처음 시작 이미지 번호는 0임 -> product.images[0] = image1 을 의미함
@@ -28,7 +29,7 @@ const SingleProductPage = () => {
               {product.images.map((image, index) => (
                 <img
                   key={index}
-                  src={`http://localhost:5000/products/${image}`}
+                  src={`${config.backendURL}/products/${image}`}
                   alt={product.title}
                   // css 는 selectedImage state가 index일 경우 selected_image 적용한다.
                   className={selectedImage === index ? "selected_image" : ""}
@@ -40,7 +41,7 @@ const SingleProductPage = () => {
 
             <img
               // 이미지는 선택된 index의 이미지로 출력한다.
-              src={`http://localhost:5000/products/${product.images[selectedImage]}`}
+              src={`${config.backendURL}/products/${product.images[selectedImage]}`}
               alt={product.title}
               className="single_product_display"
             />
