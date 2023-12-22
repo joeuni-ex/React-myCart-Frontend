@@ -6,11 +6,12 @@ import { useEffect, useState, useContext } from "react";
 // userContext로 user객체받음
 import UserContext from "../../contexts/UserContext";
 import CartContext from "../../contexts/CartContext";
+import { checkoutAPI } from "../../services/orderServices";
 
 const CartPage = () => {
   const [subTotal, setSubTotal] = useState(0); //배송비 제외 합계
   const user = useContext(UserContext);
-  const { cart, removeFromCart, updateCart } = useContext(CartContext);
+  const { cart, removeFromCart, updateCart, setCart } = useContext(CartContext);
   //console.log(user.profilePic);
   //카트 수정될 때마다 합계 계산하기
   useEffect(() => {
@@ -20,6 +21,21 @@ const CartPage = () => {
     });
     setSubTotal(total);
   }, [cart]);
+
+  //주문하기
+  const checkout = () => {
+    const oldCart = [...cart]; //기존의 장바구니
+    setCart([]); //카트 비우기
+    checkoutAPI() //백엔드에 요청
+      .then(() => {
+        toast.success("주문 성공!");
+      })
+      .catch(() => {
+        toast.error("checkout 중 에러발생.");
+        setCart(oldCart);
+      });
+  };
+
   return (
     <section className="align_center cart_page">
       <div className="align_center user_info">
@@ -78,7 +94,9 @@ const CartPage = () => {
         </tbody>
       </table>
 
-      <button className="search_button checkout_button">결제하기</button>
+      <button onClick={checkout} className="search_button checkout_button">
+        결제하기
+      </button>
     </section>
   );
 };

@@ -74,6 +74,7 @@ function App() {
   const updateCart = (type, id) => {
     const updatedCart = [...cart];
     const productIndex = updatedCart.findIndex(
+      //findIndex:update 할 제품의 id의 idnex를 찾는다.
       (item) => item.product._id === id
     );
     //만약 타입이 increase 이면 기존의 수량에서 증가한다.
@@ -120,7 +121,7 @@ function App() {
   return (
     <UserContext.Provider value={user}>
       <CartContext.Provider
-        value={{ cart, addToCart, removeFromCart, updateCart }}
+        value={{ cart, addToCart, removeFromCart, updateCart, setCart }}
       >
         <div className="app">
           <Navbar user={user} cartCount={cart.length} />
