@@ -10,21 +10,25 @@
 
 ## 📌주요기능
 ### 회원가입
----
 
 ***유효성 검사**
 ***프로필 등록 가능***
 
  ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/f4c4dfa6-c546-4be4-bcbf-4396f3871114)
 
+---
 
 ### 로그인
  ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/7161fa38-91ff-4c54-a945-63932e31465b)
+
+---
 
 ### 검색 기능
  ***제품명으로 검색 가능***
  ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/abb5d5d3-37a9-485b-a319-9382bfcc6c27)
  ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/0d1beb51-629d-439e-b674-11fbfdd467f5)
+
+---
 
 ### 상품 목록 
 ***카테고리 별 / 정렬 옵션 지원***
@@ -42,6 +46,7 @@
 
 ***제품 클릭 시 상세 보기 페이지로 이동***
 
+---
 
 ### 제품 상세 보기 페이지
 ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/15ee251e-a792-4191-9a7b-a3f8676ad9cf)
@@ -50,6 +55,7 @@
 - 장바구니 추가 시 오른쪽 하단에 토스트 메세지 출력
 ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/fb85628f-19e8-4a03-9b25-8aa9c580e0d6)
 
+---
 
  ### 장바구니 
 ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/f0098f98-2bb1-43c6-a75b-3418c841b7ca)
@@ -57,6 +63,8 @@
  - 수량 수정 가능 및 삭제 가능
  - 장바구니에 있는 총 결제 금액 산정
  - 결제하기 버튼 클릭 시 장바구니의 제품들은 삭제되고 내 주문으로 이동
+   
+---
 
  ### 내주문 페이지
 ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/cc33918a-1f54-405e-b652-37a7fd2372e0)
