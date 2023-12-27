@@ -4,7 +4,7 @@ import apiClient from "../utils/api-client";
 const useData = (endpoint, customConfig, deps) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(
     () => {
