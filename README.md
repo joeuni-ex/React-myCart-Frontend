@@ -26,16 +26,20 @@
 
 ### 상품 목록 
 - ***카테고리 별 / 정렬 옵션 지원***
+- 
 ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/1a57b1ee-f307-4fb7-8a4b-d3171953caa5)
 ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/4d808c50-5b57-4439-a42a-9d465e46ca42)
 
 - ***페이지네이션 기능***
+- 
 ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/27581ed6-7474-4374-a733-21a8fcd3e2d5)
 
 ***장바구니 담기 기능 (비회원은 표시안함)***
+
 ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/211e2b94-75e7-4920-8391-11baa6078cc1)
 
 ***제품 클릭 시 상세 보기 페이지로 이동***
+
 
 ### 제품 상세 보기 페이지
 ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/15ee251e-a792-4191-9a7b-a3f8676ad9cf)
