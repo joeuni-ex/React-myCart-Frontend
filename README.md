@@ -1,4 +1,4 @@
-# React + Vite + Full-stack
+![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/38251111-5afd-4d5f-8a77-f96a6fbc8dba)# React + Vite + Full-stack
 ## Front-end
 
 ## 💻 프로젝트 소개
@@ -12,17 +12,26 @@
 ### 회원가입
 - 유효성 검사
 - 프로필 등록 가능
-- 
+- ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/f4c4dfa6-c546-4be4-bcbf-4396f3871114)
+
+
 ### 로그인
-- 유효성검사
+- ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/7161fa38-91ff-4c54-a945-63932e31465b)
 
 ### 검색 기능
 - 원하는 제품을 검색창에 입력하면 검색 결과가 상품 목록 페이지에서 출력된다.
+- ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/abb5d5d3-37a9-485b-a319-9382bfcc6c27)
+- ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/0d1beb51-629d-439e-b674-11fbfdd467f5)
 
 ### 상품 목록 
-- 카테고리 별 / 정렬 옵션 지원
-- 페이지네이션 기능
-- 장바구니 담기 기능 (비회원은 표시안함)
+- ***카테고리 별 / 정렬 옵션 지원***
+- ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/1a57b1ee-f307-4fb7-8a4b-d3171953caa5)
+- ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/4d808c50-5b57-4439-a42a-9d465e46ca42)
+
+- ***페이지네이션 기능***
+- ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/27581ed6-7474-4374-a733-21a8fcd3e2d5)
+
+***장바구니 담기 기능 (비회원은 표시안함)***
 - 제품 상세 보기 페이지로 이동
 
 ### 제품 상세 보기 페이지
