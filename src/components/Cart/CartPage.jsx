@@ -7,6 +7,7 @@ import { useEffect, useState, useContext } from "react";
 import UserContext from "../../contexts/UserContext";
 import CartContext from "../../contexts/CartContext";
 import { checkoutAPI } from "../../services/orderServices";
+import config from "../../config.json";
 
 const CartPage = () => {
   const [subTotal, setSubTotal] = useState(0); //배송비 제외 합계

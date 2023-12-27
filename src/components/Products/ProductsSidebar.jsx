@@ -1,6 +1,7 @@
 import "./ProductsSidebar.css";
 import LinkWithIcon from "../Navbar/LinkWithIcon";
 import useData from "../../Hook/useData";
+import config from "../../config.json";
 
 const ProductsSidebar = () => {
   //useDate(url)이 들어가야함
