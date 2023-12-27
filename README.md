@@ -12,6 +12,7 @@
 ### 회원가입
 ***유효성 검사**
 ***프로필 등록 가능***
+
  ![image](https://github.com/joeuni-ex/React-myCart-Frontend/assets/141595215/f4c4dfa6-c546-4be4-bcbf-4396f3871114)
 
 
